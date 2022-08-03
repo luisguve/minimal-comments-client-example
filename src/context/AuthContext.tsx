@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react"
 interface IUser {
   username: string,
   email: string,
-  id: string,
+  id: number,
   token: string
 }
 
