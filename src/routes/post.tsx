@@ -1,10 +1,16 @@
 import { useContext, useEffect } from "react"
 import { useParams, Link } from "react-router-dom";
 
+import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from "strapi-comments-client"
+
 const Post = () => {
   const { contentID } = useParams()
+
+  const { setContentID } = useContext(CommentsConfigContext)
+  
   useEffect(() => {
     if (contentID) {
+      setContentID(contentID)
     }
   }, [contentID])
 
@@ -20,6 +26,10 @@ const Post = () => {
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
+
+      <CommentForm />
+      <ErrorBox />
+      <Comments />
     </div>
   )
 }
